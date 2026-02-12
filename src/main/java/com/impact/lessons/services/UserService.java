@@ -4,6 +4,7 @@ import com.impact.lessons.database.UserStore;
 import com.impact.lessons.models.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserService {
     private UserStore store = new UserStore();
@@ -12,7 +13,7 @@ public class UserService {
         return store.save(newUser);
 
     }
-    public List<User> GetAllUsers(){ //Optional<User> GetUserById(Long id)
-        return store.findAll(); // .findById(id);
+    public Optional<User> GetUserById(Long id){ //Optional<User> GetUserById(Long id)
+        return store.findById(id); // .findById(id);
     }
 }

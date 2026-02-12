@@ -2,12 +2,10 @@ package com.impact.lessons.controllers;
 
 import com.impact.lessons.models.User;
 import com.impact.lessons.services.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -17,8 +15,8 @@ public class UserController {
     public User createUser(@RequestBody User user){
         return userService.CreateUser(user);
     }
-    @GetMapping("/users/get_all")    //users/get_by_id
-    public List<User> GetAllUsers(){   //public Optional<User> GetUserByID(@RequestParam Long id)
-        return userService.GetAllUsers(); // .GetUserById(id)
+    @GetMapping("/users/get_by_id")    //users/get_by_id
+    public Optional<User> GetUserByID(@RequestParam Long id){   //public Optional<User> GetUserByID(@RequestParam Long id)
+        return userService.GetUserById(id); // .GetUserById(id)
     }
 }

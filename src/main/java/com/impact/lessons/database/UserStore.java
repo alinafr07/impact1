@@ -4,6 +4,7 @@ import com.impact.lessons.models.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -17,7 +18,7 @@ public class UserStore {
         users.put(id, user);
         return user;
     }
-    public List<User> findAll(){  // Optional<User> findById(long id)
-        return new ArrayList<>(users.values()); // return Optional.ofNullable(users.get(id))
+    public Optional<User> findById(long id){  // Optional<User> findById(long id)
+        return Optional.ofNullable(users.get(id)); // return Optional.ofNullable(users.get(id))
     }
 }
