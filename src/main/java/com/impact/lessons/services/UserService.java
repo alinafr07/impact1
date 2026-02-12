@@ -13,7 +13,10 @@ public class UserService {
         return store.save(newUser);
 
     }
-    public Optional<User> GetUserById(Long id){ //Optional<User> GetUserById(Long id)
-        return store.findById(id); // .findById(id);
+    public List<User> GetAllUsers(){
+        return store.findAll();
+    }
+    public Optional<User> GetUserById(Long id){ 
+        return store.findById(id); 
     }
 }
