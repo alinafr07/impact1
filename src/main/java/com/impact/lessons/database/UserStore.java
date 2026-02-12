@@ -11,6 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class UserStore {
     private final Map<Long, User> users = new ConcurrentHashMap<>();
     private final AtomicInteger idGenerator = new AtomicInteger(1);
+    public List<User> findAll(){
+        return new ArrayList<>(users.values());
+    }
 
     public User save(User user){
         long id = idGenerator.getAndIncrement();
@@ -18,7 +21,7 @@ public class UserStore {
         users.put(id, user);
         return user;
     }
-    public Optional<User> findById(long id){  // Optional<User> findById(long id)
-        return Optional.ofNullable(users.get(id)); // return Optional.ofNullable(users.get(id))
+    public Optional<User> findById(long id){ 
+        return Optional.ofNullable(users.get(id)); 
     }
 }
