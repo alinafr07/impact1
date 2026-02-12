@@ -15,6 +15,10 @@ public class UserController {
     public User createUser(@RequestBody User user){
         return userService.CreateUser(user);
     }
+    @GetMapping("/users/get_all")
+    public List<User> GetAllUsers(){
+        return userService.GetAllUsers();
+    }
     @GetMapping("/users/get_by_id")    //users/get_by_id
     public Optional<User> GetUserByID(@RequestParam Long id){   //public Optional<User> GetUserByID(@RequestParam Long id)
         return userService.GetUserById(id); // .GetUserById(id)
