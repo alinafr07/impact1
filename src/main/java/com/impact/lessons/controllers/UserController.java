@@ -19,8 +19,8 @@ public class UserController {
     public List<User> GetAllUsers(){
         return userService.GetAllUsers();
     }
-    @GetMapping("/users/get_by_id")    //users/get_by_id
-    public Optional<User> GetUserByID(@RequestParam Long id){   //public Optional<User> GetUserByID(@RequestParam Long id)
-        return userService.GetUserById(id); // .GetUserById(id)
+    @GetMapping("/users/get_by_id")    
+    public Optional<User> GetUserByID(@RequestParam Long id){  
+        return userService.GetUserById(id); 
     }
 }
